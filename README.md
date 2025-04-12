@@ -8,6 +8,8 @@ This repository contains my implementation of the **pipex** project, developed a
 
 The project challenges you to create a C program that mimics this behavior using system calls. The code is written according to the strict Norm requirements of 42 School and is intended for educational and demonstration purposes only.
 
+> **Note:** This project is strictly for educational purposes. Use of this code in academic submissions or by other students is prohibited by the 42 School regulations.
+
 ## Table of Contents
 
 - [Overview](#overview)
