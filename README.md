@@ -203,7 +203,7 @@ Example:
 - If there is an error opening file1 or file2, executing a command, or any system call fails, the program should output a descriptive error message (using perror) and exit, behaving like the shell.
 - For example:
           ./pipex "nonexistingfile" "cat -e" "ls" "outfiles/outfile"
-    will still perform "ls" and write its output on outfile as the shell would do (ls doesn't depend on cat -e output to perform so it can go through even if cat -e cannot be executed, and exit code will report an error).
+    will still perform "ls" and write its output on outfile as the shell would do (ls doesn't depend on cat -e output to perform so it can go through even if cat -e cannot be executed, exit code will report an error).
 - The program must validate the number of arguments and the correctness of each argument (e.g., file existence, valid command format).
 - I's required to ensure there are no memory leaks by freeing all allocated memory.
 
