@@ -51,7 +51,6 @@ Your program should open `file1`, pass its content through `cmd1`, pipe the outp
 - **Language & Norm:** The project must be written in C and adhere strictly to the Norm.
 - **Allowed Functions:** Only use the permitted functions, such as:
   - `open`, `close`, `read`, `write`, `malloc`, `free`, `perror`, `strerror`, `access`, `dup`, `dup2`, `execve`, `exit`, `fork`, `pipe`, `unlink`, `wait`, and `waitpid`.
-  - Optionally, you may use your own implementation of `ft_printf` (or any equivalent that you coded).
 - **Makefile:** Makefile must compile source files with the flags `-Wall`, `-Wextra`, and `-Werror` using `cc` and must include at least the following rules: `NAME`, `all`, `clean`, `fclean`, and `re`. It must not perform unnecessary relinking.
 
 ## Mandatory Part
@@ -78,7 +77,7 @@ It must behave like the shell command:
 - **Commands:**  
   - `cmd1` and `cmd2` are the commands along with their arguments.
 - **Robustness:**  
-  - The program must handle errors gracefully (e.g., file access errors, command failures, etc.) by printing an error message using `perror` (or equivalent) and exiting appropriately.
+  - The program must handle errors gracefully (e.g., file access errors, command failures, etc.) by printing an error message using `perror` (or equivalent) and exiting appropriately (same behaviour as the shell about exit code and performing of the different commands).
   - All allocated memory must be properly freed to avoid memory leaks.
   - The program must not crash (e.g., segmentation faults or double frees).
 
@@ -202,6 +201,9 @@ Example:
 ## Error Handling
 
 - If there is an error opening file1 or file2, executing a command, or any system call fails, the program should output a descriptive error message (using perror) and exit, behaving like the shell.
+- For example:
+          ./pipex "nonexistingfile" "cat -e" "ls" "outfiles/outfile"
+    will still perform "ls" and write its output on outfile as the shell would do (ls doesn't depend on cat -e output to perform so it can go through even if cat -e cannot be executed, and exit code will report an error).
 - The program must validate the number of arguments and the correctness of each argument (e.g., file existence, valid command format).
 - I's required to ensure there are no memory leaks by freeing all allocated memory.
 
