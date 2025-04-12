@@ -52,15 +52,13 @@ Your program should open `file1`, pass its content through `cmd1`, pipe the outp
 - **Allowed Functions:** Only use the permitted functions, such as:
   - `open`, `close`, `read`, `write`, `malloc`, `free`, `perror`, `strerror`, `access`, `dup`, `dup2`, `execve`, `exit`, `fork`, `pipe`, `unlink`, `wait`, and `waitpid`.
   - Optionally, you may use your own implementation of `ft_printf` (or any equivalent that you coded).
-- **Makefile:** Your Makefile must compile your source files with the flags `-Wall`, `-Wextra`, and `-Werror` using `cc` and must include at least the following rules: `NAME`, `all`, `clean`, `fclean`, and `re`. It must not perform unnecessary relinking.
-- **libft:** If your project uses your libft, include its sources and its associated Makefile in a `libft` folder, and compile it through your main Makefile.
-- **Testing:** Create test programs to validate your work. These tests are not submitted but can be used during your defense.
+- **Makefile:** Makefile must compile source files with the flags `-Wall`, `-Wextra`, and `-Werror` using `cc` and must include at least the following rules: `NAME`, `all`, `clean`, `fclean`, and `re`. It must not perform unnecessary relinking.
 
 ## Mandatory Part
 
 ### Program Behavior
 
-Your program should be executed as follows:
+The program should be executed as follows:
 
 ```bash
 ./pipex file1 "cmd1" "cmd2" file2
@@ -112,11 +110,11 @@ It must behave like the shell command:
 
 ## Bonus Part
 
-For additional points, implement the following bonus features:
+For the bonus part it is required to implement the following bonus features:
 
 ### Multiple Pipes:
 
-Extend your program to handle more than two commands. For example:
+Extending the program to handle more than two commands. For example:
 
 ```sh
 $> ./pipex infile "cmd1" "cmd2" "cmd3" ... "cmdn" outfile
@@ -142,17 +140,13 @@ This should behave like:
 $> cmd << LIMITER | cmd1 >> outfile
 ```
 
-Note: The bonus part will only be evaluated if your mandatory part is fully functional and passes all requirements.
-
 ## Project Structure
 
 ```
 pipex/
 ├── includes/         # Header files (e.g., pipex.h)
 ├── srcs/             # C source files implementing the pipex program
-├── libft/            # (Optional) libft sources and its Makefile if used
-├── tests/            # Test scripts and sample input files for validation
-├── Makefile          # Makefile with rules: NAME, all, clean, fclean, re (and bonus if applicable)
+├── Makefile          # Makefile with rules: NAME, all, clean, fclean, re and bonus
 └── README.md         # This file
 ```
 
@@ -161,19 +155,19 @@ pipex/
 1. **Clone the Repository:**
 
    ```sh
-   git clone https://github.com/yourusername/pipex.git
+   git clone https://github.com/marco-ht/pipex.git
    cd pipex
    ```
 
 2. **Build the Project:**
 
-   Use the provided Makefile to compile your source files:
+   Use the provided Makefile to compile the source files:
 
    ```sh
    make
    ```
 
-   This command will produce the executable named pipex.
+   This command will produce the executable named pipex (as "make bonus" will produce pipex_bonus).
 
 ## Usage
 
@@ -207,15 +201,9 @@ Example:
 
 ## Error Handling
 
-- If there is an error opening file1 or file2, executing a command, or any system call fails, your program should output a descriptive error message (using perror or similar) and exit.
+- If there is an error opening file1 or file2, executing a command, or any system call fails, the program should output a descriptive error message (using perror) and exit, behaving like the shell.
 - The program must validate the number of arguments and the correctness of each argument (e.g., file existence, valid command format).
-- Ensure there are no memory leaks by freeing all allocated memory.
-
-## Submission and Peer Evaluation
-
-- Submit your project through the designated Git repository.
-- Only the work inside your Git repository will be evaluated during the defense.
-- Double-check the names and organization of your files to ensure they meet the subject requirements.
+- I's required to ensure there are no memory leaks by freeing all allocated memory.
 
 ## Acknowledgments
 
